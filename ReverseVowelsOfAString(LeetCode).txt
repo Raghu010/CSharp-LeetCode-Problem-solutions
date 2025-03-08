@@ -1,0 +1,32 @@
+using System.Text.RegularExpressions;
+
+public class Solution 
+{
+    public string ReverseVowels(string s) 
+    {
+        string pattern = "[AEIOUaeiou]";
+        List<string> ovals = new List<string>();
+        var matches = Regex.Matches(s, pattern);
+        string output = "";
+        foreach (Match match in matches) 
+        {
+            ovals.Add(match.Value);
+        }
+        ovals.Reverse();
+        int index = 0;
+
+        for (int i = 0; i < s.Length; i++)
+        {
+            if (s[i].Equals('a') || s[i].Equals('e') || s[i].Equals('i') || s[i].Equals('o') || s[i].Equals('u') || s[i].Equals('A') || s[i].Equals('E') || s[i].Equals('I') || s[i].Equals('O') || s[i].Equals('U'))
+            {
+                output = output + ovals[index];
+                index = index + 1;
+            }
+            else
+            {
+                output = output + s[i];
+            }
+        }
+        return output;
+    }
+}
