@@ -1,0 +1,23 @@
+public class Solution 
+{
+    public bool IsSubsequence(string s, string t) 
+    {
+        char[] chars = t.ToCharArray();
+        string output = "";
+        for (int i = 0; i < chars.Length; i++)
+        {
+            if (s.Contains(chars[i]))
+            {
+                output = output + chars[i];
+            }
+        }
+        if(s.Equals(output) || output.Contains(s))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+}
